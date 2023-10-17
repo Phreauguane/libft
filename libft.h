@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 20:38:10 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/09 10:43:20 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/17 14:28:01 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,26 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
+# define SPECS "cspdiuxX%*"
+# define FLAGS "-0#. +"
+# define SP_CHR 0
+# define SP_STR 1
+# define SP_PTR 2
+# define SP_DEC 3
+# define SP_INT 4
+# define SP_UIN 5
+# define SP_HEX 6
+# define SP_CAP_HEX 7
+
+typedef struct flags_s
+{
+	char	flags;
+	char	spec;
+	int		length;
+	int		precision;
+}	t_flags;
 typedef struct s_list
 {
 	void			*content;
@@ -65,5 +84,16 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void*(*f)(void*), void(*del)(void*));
+void			args_to_str(char **fmt, va_list params, char **str, int *l);
+void			print_char(t_flags flags, char **str, char c, int *l);
+void			print_str(t_flags flags, char **str, const char *s, int *l);
+void			print_hex(t_flags f, char **s, unsigned long long i, int *l);
+void			print_int(t_flags flags, char **str, long int i, int *l);
+int				ft_printf(const char *fmt, ...);
+char			*ft_strcat_malloc(char *dest, char *src);
+char			*ft_straddchr(char *str, char c);
+char			*ft_itoa_base(long long int n, char *base, int ptr);
+void			add_pre(t_flags flags, char **str, unsigned long long i);
+void			add_zer(t_flags flags, char **str, char *itoa_out);
 
 #endif
