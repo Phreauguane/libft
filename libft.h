@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-meo <jde-meo@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 20:38:10 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/17 14:28:01 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/24 16:59:59 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 12
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
 
 # define SPECS "cspdiuxX%*"
 # define FLAGS "-0#. +"
@@ -95,5 +100,9 @@ char			*ft_straddchr(char *str, char c);
 char			*ft_itoa_base(long long int n, char *base, int ptr);
 void			add_pre(t_flags flags, char **str, unsigned long long i);
 void			add_zer(t_flags flags, char **str, char *itoa_out);
+char			*get_next_line(int fd);
+char			*str_addc(char *str, char c);
+int				stchr(char *s, char c);
+char			*str_adds(char *str, char *s, size_t src_len);
 
 #endif

@@ -16,7 +16,8 @@ SRC = 	ft_atoi.c ft_isascii.c ft_memcmp.c	\
 		ft_strlcpy.c ft_strrchr.c print_arg.c	\
 		args_to_str.c ft_itoa_base.c 			\
 		ft_printf.c	ft_straddchr.c 				\
-		ft_strcat_malloc.c
+		ft_strcat_malloc.c get_next_line.c		\
+		get_next_line_utils.c
 
 BONUS = ft_lstadd_back_bonus.c 	\
 		ft_lstclear_bonus.c 	\
