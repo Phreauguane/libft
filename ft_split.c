@@ -6,7 +6,7 @@
 /*   By: jde-meo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:05:42 by jde-meo           #+#    #+#             */
-/*   Updated: 2023/10/04 19:02:23 by jde-meo          ###   ########.fr       */
+/*   Updated: 2023/10/31 00:32:43 by jde-meo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,18 @@ char	**ft_split(char const *s, char c)
 		j++;
 	}
 	return (out);
+}
+
+void	ft_free_split(char **tab)
+{
+	char	**p;
+
+	p = tab;
+	while (p && *p)
+	{
+		free(*p);
+		p++;
+	}
+	if (tab)
+		free(tab);
 }
